@@ -1,43 +1,43 @@
-const knex = require('../connection');
+const knex = require('../conexao');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const hashPassword = require('../hashPassword');
 
 const login = async (req, res) => {
-    const { email, password } = req.body;
+    const { email, senha } = req.body;
 
-    if (!email || !password) {
-        return res.status(404).json('Email and password are required')
+    if (!email || !senha) {
+        return res.status(404).json('Email e senha são obrigatórios')
     }
 
     try {
-        const user = await knex('users').where({ email: email }).first();
+        const usuario = await knex('usuarios').where({ email: email }).first();
 
-        if (!user) {
-            return res.status(400).json("User not found");
+        if (!usuario) {
+            return res.status(400).json("Usuário não foi encontrado");
         }
 
-        const validPassword = await bcrypt.compare(password, user.password);
+        const senhaValida = await bcrypt.compare(senha, usuario.senha);
 
-        if (!validPassword) {
-            return res.status(400).json('E-mail or password invalid');
+        if (!senhaValida) {
+            return res.status(400).json('E-mail or senha inválidos');
         }
 
-        const userToken = {
-            id: user.id,
-            email: user.email
+        const tokenUsuario = {
+            id: usuario.id,
+            email: usuario.email
         }
 
-        const token = jwt.sign(userToken, hashPassword, { expiresIn: '8h' });
+        const token = jwt.sign(tokenUsuario, hashPassword, { expiresIn: '8h' });
 
-        const { password: _, ...userData } = user;
+        const { senha: _, ...dadosUsuario } = usuario;
 
         return res.status(200).json({
-            user: userData,
+            usuario: dadosUsuario,
             token
         })
     } catch (error) {
-        return res.status(400).json('USER NOT FOUND');
+        return res.status(400).json('USUÁRIO NÃO ENCONTRADO');
     }
 }
 

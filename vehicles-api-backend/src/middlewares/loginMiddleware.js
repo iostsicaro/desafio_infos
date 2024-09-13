@@ -1,4 +1,4 @@
-const knex = require('../connection');
+const knex = require('../conexao');
 const jwt = require('jsonwebtoken');
 const hashPassword = require('../hashPassword');
 
@@ -6,7 +6,7 @@ const loginMiddleware = async (req, res, next) => {
     const { authorization } = req.headers;
 
     if (!authorization) {
-        return res.status(401).json('Access Denied')
+        return res.status(401).json('Acesso Negado')
     }
 
     try {
@@ -14,15 +14,15 @@ const loginMiddleware = async (req, res, next) => {
 
         const { id } = jwt.verify(token, hashPassword);
 
-        const verifyUser = await knex('users').where({ id: id }).first();
+        const usuarioVerificado = await knex('usuarios').where({ id: id }).first();
 
-        if (!verifyUser) {
-            return res.status.json('User not found.')
+        if (!usuarioVerificado) {
+            return res.status.json('Usuário não foi encontrado');
         }
 
-        const { password, ...user } = verifyUser;
+        const { senha, ...usuario } = usuarioVerificado;
 
-        req.user = user;
+        req.usuario = usuario;
 
         next();
     } catch (error) {

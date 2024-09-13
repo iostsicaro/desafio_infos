@@ -1,30 +1,30 @@
-const knex = require('../connection');
+const knex = require('../conexao');
 const bcrypt = require('bcrypt');
 
-const registerUser = async (req, res) => {
-    const { name, email, password } = req.body;
+const cadastroUsuario = async (req, res) => {
+    const { nome, email, senha } = req.body;
 
     try {
-        const verifyUserEmail = await knex('users').where({ email }).first();
+        const verifyUserEmail = await knex('usuarios').where({ email }).first();
 
         if (verifyUserEmail) {
-            return res.status(400).json('E-mail already in use')
+            return res.status(400).json('E-mail já cadastrado')
         }
 
-        const criptographyPassword = await bcrypt.hash(password, 10);
+        const senhaCriptografada = await bcrypt.hash(senha, 10);
 
-        const user = await knex('users').insert({ name, email, password: criptographyPassword });
+        const usuario = await knex('usuarios').insert({ nome, email, senha: senhaCriptografada });
 
-        if (!user) {
+        if (!usuario) {
             return res.status(404).json('Error 404')
         }
 
-        return res.status(200).json('Successfully registered user')
+        return res.status(200).json('Usuário registrado com sucesso')
     } catch (error) {
         return res.status(400).json(error.message);
     }
 }
 
 module.exports = {
-    registerUser
+    cadastroUsuario
 };

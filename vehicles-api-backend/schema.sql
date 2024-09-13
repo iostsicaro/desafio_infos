@@ -1,0 +1,22 @@
+CREATE DATABASE desafio_infos;
+
+DROP TABLE IF EXISTS usuarios;
+
+CREATE TABLE usuarios (
+  id serial NOT NULL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULl UNIQUE,
+  password TEXT NOT NULL
+);
+
+DROP TABLE IF EXISTS veiculos;
+
+CREATE TABLE veiculos (
+  id serial NOT NULL PRIMARY KEY,
+  placa VARCHAR(50) NOT NULL,
+  chassi VARCHAR(50) NOT NULl,
+  renavam VARCHAR(50) NOT NULL,
+  modelo VARCHAR(50) NOT NULL,
+  marca VARCHAR(50) NOT NULL,
+  ano DATE NOT NULL
+);

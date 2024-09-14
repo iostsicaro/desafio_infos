@@ -7,7 +7,7 @@ const { listarVeiculos, encontrarVeiculoId , criarVeiculo, atualizarVeiculo, rem
 const rotas = express();
 
 // USER REGISTER ROUTE
-rotas.post('/cadastro', cadastroUsuario);
+rotas.post('/cadastrar', cadastroUsuario);
 
 // LOGIN ROUTE
 rotas.post('/login', login);
@@ -16,10 +16,10 @@ rotas.post('/login', login);
 rotas.use(loginMiddleware);
 
 // VEHICLES ROUTES
-routes.get('/listarveiculos', listarVeiculos);
-routes.get('/veiculo/:id', encontrarVeiculoId);
-routes.post('/criarveiculo', criarVeiculo);
-routes.put('/atualizarveiculo/:id', atualizarVeiculo);
-routes.delete('/removerveiculo/:id', removerVeiculo);
+rotas.get('/listarveiculos', listarVeiculos);
+rotas.get('/veiculo/:id', encontrarVeiculoId);
+rotas.post('/criarveiculo', criarVeiculo);
+rotas.put('/atualizarveiculo/:id', atualizarVeiculo);
+rotas.delete('/removerveiculo/:id', removerVeiculo);
 
 module.exports = rotas;

@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "fd210c75-b8a0-4fc9-ae2b-becbc07f718a",
+		"name": "desafio_infos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34452978"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Icaro Oliveira\",\r\n    \"email\": \"icaro@email.com\",\r\n    \"senha\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}cadastrar"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let res = pm.response.json();\r",
+									"pm.collectionVariables.set('token', res.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"icaro@email.com\",\r\n    \"senha\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}login"
+					},
+					"response": []
+				}
+			],
+			"description": "User Collection contendo todos os requests CRUD(create, read, update, delete) da API REST vehicles-api-backend"
+		},
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "listarveiculos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}listarveiculos"
+					},
+					"response": []
+				},
+				{
+					"name": "veiculo/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}veiculo/1"
+					},
+					"response": []
+				},
+				{
+					"name": "criarveiculo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"placa\": \"E45JJ-HC\",\r\n    \"chassi\": \"9BWHE21JX24060831\",\r\n    \"renavam\": \"00891353378\",\r\n    \"modelo\": \"Jeep Renegade\",\r\n    \"marca\": \"Jeep\",\r\n    \"ano\": \"2024-09-14\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}criarveiculo"
+					},
+					"response": []
+				},
+				{
+					"name": "atualizarveiculo/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"placa\": \"E45JJ-HC\",\r\n    \"chassi\": \"9BWHE21JX24060831\",\r\n    \"renavam\": \"00891353378\",\r\n    \"modelo\": \"Jeep Renegade 2024\",\r\n    \"marca\": \"Jeep\",\r\n    \"ano\": \"2024-09-14\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}atualizarveiculo/1"
+					},
+					"response": []
+				},
+				{
+					"name": "removerveiculo/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}removerveiculo/1"
+					},
+					"response": []
+				}
+			],
+			"description": "Vehicles Collection contendo todos os requests CRUD(create, read, update, delete) da API REST vehicles-api-backend"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

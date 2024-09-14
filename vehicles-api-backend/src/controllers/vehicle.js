@@ -76,14 +76,14 @@ const atualizarVeiculo = async (req, res) => {
             return res.status(404).json('Veículo não foi encontrado');
         }
 
-        const veiculoAtualizado = await knex('veiculos').update({
+        const veiculoAtualizado = await knex('veiculos').where({ id }).update({
             placa,
             chassi,
             renavam,
             modelo,
             marca,
             ano
-        }).where({ id });
+        }).returning('*');
 
         if (!veiculoAtualizado) {
             return res.status(400).json('Não foi possível atualizar veículo.');

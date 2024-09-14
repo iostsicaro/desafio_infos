@@ -4,9 +4,9 @@ DROP TABLE IF EXISTS usuarios;
 
 CREATE TABLE usuarios (
   id serial NOT NULL PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
+  nome VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULl UNIQUE,
-  password TEXT NOT NULL
+  senha TEXT NOT NULL
 );
 
 DROP TABLE IF EXISTS veiculos;

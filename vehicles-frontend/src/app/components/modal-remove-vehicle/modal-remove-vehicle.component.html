@@ -1,0 +1,11 @@
+<div class="modal-overlay">
+    <div class="modal-container">
+        <h2>Remover Veículo</h2>
+        <p>Tem certeza que deseja remover o veículo <strong>{{ veiculo.modelo }}</strong>?</p>
+
+        <div class="buttons-container">
+            <button class="edit-button" (click)="onConfirmRemove()">Confirmar</button>
+            <button class="cancel-button" (click)="onClose()">Cancelar</button>
+        </div>
+    </div>
+</div>

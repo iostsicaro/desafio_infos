@@ -1,0 +1,80 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    max-width: 90%;
+}
+
+.modal-container h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.modal-container p {
+    margin: 45px 0px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    margin: 18px 0px;
+
+    .edit-button {
+        height: 45px;
+        width: 135px;
+        background: #ffffff;
+        color: #ea580c;
+        border: 1px solid #ea580c;
+    }
+
+    .edit-button:hover {
+        color: #ffffff;
+        background-color: #ea580c;
+    }
+
+    .cancel-button {
+        height: 45px;
+        width: 135px;
+        background: #ccc;
+        color: #ea580c;
+    }
+
+    .cancel-button:hover {
+        color: #ffffff;
+        background-color: #d6250a;
+    }
+}

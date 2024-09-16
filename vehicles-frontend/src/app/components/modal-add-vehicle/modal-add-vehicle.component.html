@@ -1,0 +1,30 @@
+<div class="modal-overlay">
+    <div class="modal">
+        <h2>Adicionar Veículo</h2>
+
+        <form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+            <label for="placa">Placa:</label>
+            <input id="placa" formControlName="placa">
+
+            <label for="chassi">Chassi:</label>
+            <input id="chassi" formControlName="chassi">
+
+            <label for="renavam">Renavam:</label>
+            <input id="renavam" formControlName="renavam">
+
+            <label for="modelo">Modelo:</label>
+            <input id="modelo" formControlName="modelo">
+
+            <label for="marca">Marca:</label>
+            <input id="marca" formControlName="marca">
+
+            <label for="ano">Ano:</label>
+            <p-calendar id="ano" formControlName="ano" dateFormat="dd M yy"></p-calendar>
+
+            <div class="buttons-container">
+                <button type="submit" class="submit-button">Criar</button>
+                <button type="button" class="cancel-button" (click)="onCloseModal()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

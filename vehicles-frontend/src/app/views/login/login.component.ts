@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
-import { FormsModule } from '@angular/forms';
+import { RouterModule, Router } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -15,7 +19,7 @@ export class LoginComponent {
   email = '';
   senha = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
 
   onSubmit(): void {
     this.authService.login(this.email, this.senha).subscribe(
@@ -26,5 +30,9 @@ export class LoginComponent {
         console.error('Erro no login', error);
       }
     );
+  }
+
+  goToCadastro() {
+    this.router.navigate(['/cadastrar']);
   }
 }

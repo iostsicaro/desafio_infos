@@ -1,15 +1,16 @@
 <div class="login">
     <div class="title-box">
-        <span className="titulo pagina">Login</span>
+        <span class="titulo-pagina">Login</span>
     </div>
 
     <form (ngSubmit)="onSubmit()">
         <input id="email" type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
         <input id="senha" type="password" [(ngModel)]="senha" name="senha" placeholder="Senha" required />
-        <button type="submit">Login</button>
+        <button type="submit" class="submit-button">Login</button>
 
         <div class="link-box">
             <span>Ainda não tem uma conta? </span>
+            <a (click)="goToCadastro()">Fazer login</a>
         </div>
     </form>
 </div>

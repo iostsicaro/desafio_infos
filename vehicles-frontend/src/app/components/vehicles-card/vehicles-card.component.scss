@@ -1,0 +1,54 @@
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .vehicle-year {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 230px;
+        height: 25px;
+        font-size: 1rem;
+        color: #0d8a50;
+        background-color: #e6f4ea;
+        border-radius: 15px;
+    }
+}
+
+.buttons-container {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    margin: 18px 0px;
+
+    .edit-button {
+        height: 30px;
+        width: 190px;
+        font-size: 16px;
+        background: #ffffff;
+        color: #ea580c;
+        border: 1px solid #ea580c;
+    }
+
+    .edit-button:hover {
+        color: #ffffff;
+        background-color: #ea580c;
+    }
+
+    .cancel-button {
+        height: 45px;
+        width: 130px;
+        height: 30px;
+        width: 190px;
+        font-size: 16px;
+        background: #ccc;
+        color: #ea580c;
+    }
+
+    .cancel-button:hover {
+        color: #ffffff;
+        background-color: #d6250a;
+    }
+}

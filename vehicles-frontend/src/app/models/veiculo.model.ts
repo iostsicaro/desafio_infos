@@ -5,5 +5,5 @@ export interface Veiculo {
     renavam: string;
     modelo: string;
     marca: string;
-    ano: number;
+    ano: Date;
 }

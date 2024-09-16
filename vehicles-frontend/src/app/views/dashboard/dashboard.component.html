@@ -1,1 +1,30 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+    <app-nav-menu></app-nav-menu>
+
+    <p-button label="Criar veículo" icon="pi pi-plus" (onClick)="openModal()" />
+
+    @if (showModal) {
+    <app-modal-add-vehicle (closeModal)="closeModal()" (vehicleAdded)="vehicleAdded()"></app-modal-add-vehicle>
+    }
+
+    <div class="vehicles-grid">
+        @for (vehicle of veiculos; track vehicle.id) {
+        <app-vehicles-card [veiculo]="vehicle" (edit)="openEditModal($event)" (remove)="openRemoveModal($event)">
+        </app-vehicles-card>
+        }
+
+        @if (showEditModal) {
+        <app-modal-edit-vehicle [veiculo]="selectedVehicle" (closeModal)="closeEditModal()"
+            (vehicleUpdated)="loadVehicles()">
+        </app-modal-edit-vehicle>
+        }
+
+        @if (showRemoveModal) {
+        <app-modal-remove-vehicle 
+            [veiculo]="selectedVehicle" 
+            (closeModal)="closeRemoveModal()"
+            (vehicleRemoved)="loadVehicles()">
+        </app-modal-remove-vehicle>
+        }
+    </div>
+</div>

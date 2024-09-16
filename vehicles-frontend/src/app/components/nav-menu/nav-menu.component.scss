@@ -1,0 +1,32 @@
+.nav-menu {
+    background-color: #393C40;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+
+    .menu-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        p {
+            color: white;
+            margin: 0;
+            font-size: 18px;
+        }
+
+        button {
+            background-color: #F21B1B;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+
+            &:hover {
+                background-color: #D13201;
+            }
+        }
+    }
+}

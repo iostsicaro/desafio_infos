@@ -1,1 +1,13 @@
-<p>vehicles-card works!</p>
+<p-card [header]="veiculo.modelo" [subheader]="veiculo.marca" [style]="{ width: '360px', height: '300px' }">
+    <div class="card-content">
+        <p><strong>Placa:</strong> {{ veiculo.placa }}</p>
+        <p><strong>Renavam:</strong> {{ veiculo.renavam }}</p>
+        <p><strong>Chassi:</strong> {{ veiculo.chassi }}</p>
+        <p class="vehicle-year"><strong>Ano veículo:</strong> {{ veiculo.ano | date: 'd MMM y' }}</p>
+    </div>
+
+    <div class="buttons-container">
+        <button type="button" class="edit-button" (click)="onEdit()">Editar</button>
+        <button type="button" class="cancel-button" (click)="onRemove()">Remover</button>
+    </div>
+</p-card>

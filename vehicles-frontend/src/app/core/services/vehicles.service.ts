@@ -23,7 +23,7 @@ export class VehiclesService {
 
   listarVeiculos(): Observable<Veiculo[]> {
     return this.http.get<Veiculo[]>(`${this.apiUrl}/listarveiculos`, { headers: this.getHeaders() }).pipe(
-      map(veiculos => veiculos || [])
+      map((response: any) => response as Veiculo[])
     );
   }
 
@@ -33,10 +33,8 @@ export class VehiclesService {
     );
   }
 
-  criarVeiculo(veiculo: Partial<Veiculo>): Observable<string> {
-    return this.http.post<{ mensagem: string }>(`${this.apiUrl}/criarveiculo`, veiculo, { headers: this.getHeaders() }).pipe(
-      map(response => response.mensagem)
-    );
+  criarVeiculo(veiculo: Veiculo): Observable<any> {
+    return this.http.post<{ mensagem: string }>(`${this.apiUrl}/criarveiculo`, veiculo, { headers: this.getHeaders() });
   }
 
   atualizarVeiculo(id: number, veiculo: Partial<Veiculo>): Observable<string> {

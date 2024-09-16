@@ -1,0 +1,42 @@
+<div class="modal-overlay">
+    <div class="modal-container">
+        <h2>Editar Veículo</h2>
+
+        <form class="form-container" [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="placa">Placa:</label>
+                <input id="placa" formControlName="placa" placeholder="{{ veiculo.placa }}" />
+            </div>
+
+            <div class="form-group">
+                <label for="chassi">Chassi:</label>
+                <input id="chassi" formControlName="chassi" placeholder="{{ veiculo.chassi }}" />
+            </div>
+
+            <div class="form-group">
+                <label for="renavam">Renavam:</label>
+                <input id="renavam" formControlName="renavam" placeholder="{{ veiculo.renavam }}" />
+            </div>
+
+            <div class="form-group">
+                <label for="modelo">Modelo:</label>
+                <input id="modelo" formControlName="modelo" placeholder="{{ veiculo.modelo }}" />
+            </div>
+
+            <div class="form-group">
+                <label for="marca">Marca:</label>
+                <input id="marca" formControlName="marca" placeholder="{{ veiculo.marca }}" />
+            </div>
+
+            <div class="form-group">
+                <label for="ano">Ano:</label>
+                <p-calendar id="ano" formControlName="ano" dateFormat="dd M yy" placeholder="{{ veiculo.ano | date: 'd MMM y' }}" ></p-calendar>
+            </div>
+
+            <div class="buttons-container">
+                <button type="submit" class="submit-button">Salvar</button>
+                <button type="button" class="cancel-button" (click)="onClose()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

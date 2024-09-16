@@ -83,5 +83,5 @@ Nome: Ícaro Oliveira Santos
 E-mail: iostsicaro@gmail.com
 Linkedin: https://www.linkedin.com/in/santosicaro/
 
-Desenvolvido por Ícaro Oliveira Santos como parte do desafio para a vaga de Desenvolvedor Júnior na Verzel.
+Desenvolvido por Ícaro Oliveira Santos como parte do desafio para a vaga de Desenvolvedor Frontend na Infos.
 Esse README.md cobre os aspectos principais do projeto e fornece instruções claras para que qualquer pessoa consiga rodá-lo localmente.
